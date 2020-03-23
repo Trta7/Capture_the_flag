@@ -1,13 +1,12 @@
-
-class Player {
+class Enemy {
   float x;
   float y;
   int d;
   int speed;
 
-  Player() {
+  Enemy() {
 
-    x = 100;
+    x = width-100;
     y = height/2;
     d = 40;
     speed = 5;
@@ -16,17 +15,17 @@ class Player {
     //x=constrain(x, 20, width-20);
     //y=constrain(y, 20, height-20);
     rectMode(CENTER);
-    fill(255, 0, 0);
+    fill(0, 0, 255);
     rect(x, y, d, d);
   }
   void move() {
-    if (keys['a']) //move left 
+   if (keys['j']) //move left 
       x= x-speed;
-    if (keys['d']) //move right
+    if (keys['l']) //move right
       x= x+speed;
-    if (keys['w']) //move up
+    if (keys['i']) //move up
       y= y-speed;
-    if (keys['s']) //move down
+    if (keys['k']) //move down
       y= y+speed;
   }
   void wall() {
@@ -43,4 +42,5 @@ class Player {
       y=20.1;
     }
   }
+
 }
