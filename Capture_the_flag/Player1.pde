@@ -13,8 +13,7 @@ class Player {
     speed = 5;
   }
   void display() {
-    //x=constrain(x, 20, width-20);
-    //y=constrain(y, 20, height-20);
+    
     rectMode(CENTER);
     fill(255, 0, 0);
     rect(x, y, d, d);

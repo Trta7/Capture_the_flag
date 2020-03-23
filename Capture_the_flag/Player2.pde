@@ -12,20 +12,19 @@ class Enemy {
     speed = 5;
   }
   void display() {
-    //x=constrain(x, 20, width-20);
-    //y=constrain(y, 20, height-20);
+   
     rectMode(CENTER);
     fill(0, 0, 255);
     rect(x, y, d, d);
   }
   void move() {
-   if (keys['j']) //move left 
+   if (keyCodes[LEFT]) //move left 
       x= x-speed;
-    if (keys['l']) //move right
+    if (keyCodes[RIGHT]) //move right
       x= x+speed;
-    if (keys['i']) //move up
+    if (keyCodes[UP]) //move up
       y= y-speed;
-    if (keys['k']) //move down
+    if (keyCodes[DOWN]) //move down
       y= y+speed;
   }
   void wall() {
