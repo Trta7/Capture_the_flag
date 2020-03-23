@@ -18,12 +18,18 @@ void draw() {
   e.wall();
 }
 void keyPressed() {
-  keyCodes[keyCode] = true;
-  keys[key] = true;
-}
+  if (key == CODED) {
+    keyCodes[keyCode] = true;
+  } else {
+    keys[key] = true;
+  }
+} 
 
 void keyReleased() {
-
-  keyCodes[keyCode] = false;
-  keys[key] = false;
+  if (key == CODED) {
+    keyCodes[keyCode] = false;
+  } else {
+    keys[key] = false;
+  }
+  
 }
