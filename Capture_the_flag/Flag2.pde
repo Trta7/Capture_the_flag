@@ -33,17 +33,5 @@ class Flag2 {
       y = height/2;
     }
   }
-  void end() {
-    if (s>0) {
-      fill(255);
-      rect(width/2, height/2, width+20, height+20);   
-      fill(255,0,0);
-      textAlign(CENTER, BOTTOM);
-      textSize(200); 
-      text("Red Win", width/2, height/2);
-      textAlign(CENTER, TOP);
-      textSize(50);
-    text("Press ESC", width/2, height/2);
-    }
-  }
+
 }

@@ -31,8 +31,26 @@ void draw() {
   f2.touch();
   f2.score();
   f2.gol();
-  f1.end();
-  f2.end();
+  if (f1.s>0) {
+    background(255);
+    fill(0, 0, 255);
+    textAlign(CENTER, BOTTOM);
+    textSize(200); 
+    text("Blue Win", width/2, height/2);
+    textAlign(CENTER, TOP);
+    textSize(50);
+    text("Press ESC", width/2, height/2);
+  }
+  if (f2.s>0) {
+    background(255);
+    fill(255, 0, 0);
+    textAlign(CENTER, BOTTOM);
+    textSize(200); 
+    text("Red Win", width/2, height/2);
+    textAlign(CENTER, TOP);
+    textSize(50);
+    text("Press ESC", width/2, height/2);
+  }
 }
 void keyPressed() {
   if (key == CODED) {
@@ -48,5 +66,4 @@ void keyReleased() {
   } else {
     keys[key] = false;
   }
-  
 }
