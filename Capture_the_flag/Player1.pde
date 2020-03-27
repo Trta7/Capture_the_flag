@@ -7,7 +7,7 @@ class Player {
 
   Player() {
 
-    x = 100;
+    x = 120;
     y = height/2;
     d = 40;
     speed = 5;
@@ -15,7 +15,7 @@ class Player {
   void display() {
     
     rectMode(CENTER);
-    fill(255, 0, 0);
+    fill(200, 0, 0);
     rect(x, y, d, d);
   }
   void move() {

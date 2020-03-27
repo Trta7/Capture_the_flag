@@ -1,0 +1,49 @@
+class Flag2 {
+  float x;
+  float y;
+  int d;
+  int s;
+  Flag2() {
+    x = width-75;
+    y = height/2;
+    d = 30;
+    s = 0;
+  }
+  void display() {
+    fill(255);
+    ellipse(x, y, d, d);
+  }
+  void touch() {
+    if (p.x - p.d/2 < x && p.x + p.d/2 > x && y > p.y - p.d - d/2 && y < p.y + p.d - d/2) {
+      x = p.x;
+      y = p.y;
+    }
+  }
+  void score() {
+    fill(0);
+    textSize(20);
+    text("Score:"+s, 150, 25);
+  }
+  void gol() {
+    if (x < m.x1) {
+      s = s + 1;
+      p.x = 120;
+      p.y = height/2;
+      x = width-75;
+      y = height/2;
+    }
+  }
+  void end() {
+    if (s>0) {
+      fill(255);
+      rect(width/2, height/2, width+20, height+20);   
+      fill(255,0,0);
+      textAlign(CENTER, BOTTOM);
+      textSize(200); 
+      text("Red Win", width/2, height/2);
+      textAlign(CENTER, TOP);
+      textSize(50);
+    text("Press ESC", width/2, height/2);
+    }
+  }
+}

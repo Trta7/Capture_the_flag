@@ -3,10 +3,11 @@ class Enemy {
   float y;
   int d;
   int speed;
+  
 
   Enemy() {
 
-    x = width-100;
+    x = width-120;
     y = height/2;
     d = 40;
     speed = 5;
@@ -14,7 +15,7 @@ class Enemy {
   void display() {
    
     rectMode(CENTER);
-    fill(0, 0, 255);
+    fill(0, 0, 200);
     rect(x, y, d, d);
   }
   void move() {
