@@ -3,7 +3,7 @@ class Enemy {
   float y;
   int d;
   int speed;
-  
+
 
   Enemy() {
 
@@ -13,13 +13,13 @@ class Enemy {
     speed = 5;
   }
   void display() {
-   
+
     rectMode(CENTER);
     fill(0, 0, 200);
     rect(x, y, d, d);
   }
   void move() {
-   if (keyCodes[LEFT]) //move left 
+    if (keyCodes[LEFT]) //move left 
       x= x-speed;
     if (keyCodes[RIGHT]) //move right
       x= x+speed;
@@ -42,5 +42,4 @@ class Enemy {
       y=20.1;
     }
   }
-
-}
+} 

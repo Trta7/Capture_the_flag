@@ -33,5 +33,4 @@ class Flag2 {
       y = height/2;
     }
   }
-
-}
+} 

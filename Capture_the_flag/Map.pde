@@ -27,4 +27,4 @@ class Map {
     fill(0, 0, 255);
     rect(x4, y, c, b);
   }
-}
+} 

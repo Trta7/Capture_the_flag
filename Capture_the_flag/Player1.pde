@@ -13,7 +13,7 @@ class Player {
     speed = 5;
   }
   void display() {
-    
+
     rectMode(CENTER);
     fill(200, 0, 0);
     rect(x, y, d, d);
@@ -42,4 +42,4 @@ class Player {
       y=20.1;
     }
   }
-}
+} 
