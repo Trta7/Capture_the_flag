@@ -20,9 +20,11 @@ void draw() {
   p.move();
   p.display();
   p.wall();
+  p.collision();
   e.move();
   e.display();
   e.wall();
+  e.collision();
   f1.display();
   f1.touch();
   f1.score();

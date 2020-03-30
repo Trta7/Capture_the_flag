@@ -14,7 +14,7 @@ class Flag1 {
     ellipse(x, y, d, d);
   }
   void touch() {
-    if (e.x - e.d/2 < x && e.x + e.d/2 > x && y > e.y - e.d - d/2 && y < e.y + e.d - d/2) {
+    if (e.x - e.d/2 < x + d/2 && e.x + e.d/2 > x - d/2 && y + d/2 > e.y - e.d/2  && y - d/2 < e.y + e.d/2 ) {
       x = e.x;
       y = e.y;
     }

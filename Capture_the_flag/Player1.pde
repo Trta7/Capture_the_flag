@@ -42,4 +42,14 @@ class Player {
       y=20.1;
     }
   }
-} 
+  void collision() {
+    if (x>width/2) {
+      if (e.x - e.d/2 < x + d/2 && e.x + e.d/2 > x - d/2 && y + d/2 > e.y - e.d/2  && y - d/2 < e.y + e.d/2 ) {
+        x = 120;
+        y = height/2;
+        f2.x = width-75;
+        f2.y = height/2;
+      }
+    }
+  }
+}

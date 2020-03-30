@@ -42,4 +42,14 @@ class Enemy {
       y=20.1;
     }
   }
+  void collision() {
+    if (x<width/2) {
+      if (p.x - p.d/2 < x + d/2 && p.x + p.d/2 > x - d/2 && y + d/2 > p.y - p.d/2  && y - d/2 < p.y + p.d/2 ) {
+        x = width-120;
+        y = height/2;
+        f1.x = 75;
+        f1.y = height/2;
+      }
+    }
+  }
 } 
