@@ -22,6 +22,7 @@ class Flag2 {
   void score() {
     fill(0);
     textSize(20);
+     textAlign(CENTER, CENTER);
     text("Score:"+s, 150, 25);
   }
   void gol() {
@@ -31,6 +32,10 @@ class Flag2 {
       p.y = height/2;
       x = width-75;
       y = height/2;
+      e.x = width-120;
+      e.y = height/2;
+      f1.x = 75;
+      f1.y = height/2;
     }
   }
 } 

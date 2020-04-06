@@ -33,7 +33,7 @@ void draw() {
   f2.touch();
   f2.score();
   f2.gol();
-  if (f1.s>0) {
+  if (f1.s>4) {
     background(255);
     fill(0, 0, 255);
     textAlign(CENTER, BOTTOM);
@@ -43,7 +43,7 @@ void draw() {
     textSize(50);
     text("Press ESC", width/2, height/2);
   }
-  if (f2.s>0) {
+  if (f2.s>4) {
     background(255);
     fill(255, 0, 0);
     textAlign(CENTER, BOTTOM);
