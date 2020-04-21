@@ -20,6 +20,7 @@ class Map {
   }
   void display() {
     fill(52);
+    stroke(52);
     rect(x1, y, a, b);
     rect(x2, y, a, b);
     fill(255, 0, 0);

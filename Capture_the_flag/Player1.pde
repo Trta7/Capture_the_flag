@@ -1,9 +1,11 @@
 
 class Player {
-  float x;
-  float y;
+  int x;
+  int y;
   int d;
   int speed;
+  int nextX;
+  int nextY;
 
   Player() {
 
@@ -16,30 +18,57 @@ class Player {
 
     rectMode(CENTER);
     fill(200, 0, 0);
+    stroke(1);
     rect(x, y, d, d);
   }
   void move() {
-    if (keys['a']) //move left 
-      x= x-speed;
-    if (keys['d']) //move right
-      x= x+speed;
-    if (keys['w']) //move up
-      y= y-speed;
-    if (keys['s']) //move down
-      y= y+speed;
+    colorMode(HSB, 255);
+    if (keys['a']) {  
+      nextY = y;
+      nextX = (x - d/2) ;
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        x -= speed;
+      }
+    }
+    if (keys['d']) { 
+      nextY = y;
+      nextX = (x + d/2) ;
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        x += speed;
+      }
+    }
+    if (keys['w']) { 
+      nextX = x;
+      nextY = (y - d/2) ;
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        y -= speed;
+      }
+    }
+    if (keys['s']) {
+      nextX = x;
+      nextY = (y + d/2);
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        y += speed;
+      }
+    }
+    colorMode(RGB, 255);
   }
   void wall() {
     if (x>width-20) {
-      x=width-20.1;
+      x=width-20;
     }
     if (x<20) {
-      x=20.1;
+      x=20;
     }
     if (y>height-20) {
-      y=height-20.1;
+      y=height-20;
     }
     if (y<20) {
-      y=20.1;
+      y=20;
     }
   }
   void collision() {

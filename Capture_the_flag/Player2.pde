@@ -1,8 +1,10 @@
 class Enemy {
-  float x;
-  float y;
+  int x;
+  int y;
   int d;
   int speed;
+  int nextX;
+  int nextY;
 
 
   Enemy() {
@@ -16,30 +18,60 @@ class Enemy {
 
     rectMode(CENTER);
     fill(0, 0, 200);
+    stroke(1);
     rect(x, y, d, d);
   }
   void move() {
-    if (keyCodes[LEFT]) //move left 
-      x= x-speed;
-    if (keyCodes[RIGHT]) //move right
-      x= x+speed;
-    if (keyCodes[UP]) //move up
-      y= y-speed;
-    if (keyCodes[DOWN]) //move down
-      y= y+speed;
+    if (keyCodes[LEFT]) {  
+      nextY = y;
+      nextX = (x - d/2);
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        x -= speed;
+      }
+    }
+
+    if (keyCodes[RIGHT]) { 
+      nextY = y;
+      nextX = (x + d/2);
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        x += speed;
+      }
+    } 
+
+    if (keyCodes[UP]) { 
+      nextX = x;
+      nextY = (y - d/2);
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        y -= speed;
+      }
+    }
+
+    if (keyCodes[DOWN]) {
+      nextX = x;
+      nextY = (y + d/2) ;
+      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      } else {
+        y += speed;
+      }
+    }
   }
+
+
   void wall() {
     if (x>width-20) {
-      x=width-20.1;
+      x=width-20;
     }
     if (x<20) {
-      x=20.1;
+      x=20;
     }
     if (y>height-20) {
-      y=height-20.1;
+      y=height-20;
     }
     if (y<20) {
-      y=20.1;
+      y=20;
     }
   }
   void collision() {

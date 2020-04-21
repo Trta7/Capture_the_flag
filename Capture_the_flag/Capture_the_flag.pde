@@ -4,8 +4,10 @@ Enemy e;
 Map m;
 Flag1 f1;
 Flag2 f2;
+Block b;
 boolean [] keys = new boolean[128];
 boolean [] keyCodes = new boolean[128];
+//PImage vlajka;
 void setup() {
   size(1120, 640);
   p = new Player();
@@ -13,10 +15,14 @@ void setup() {
   m = new Map();
   f1 = new Flag1();
   f2 = new Flag2();
+  b = new Block();
+  //vlajka = loadImage("vlajka.png");
+  
 }
 void draw() {
   background(255);
   m.display();
+  b.display();
   p.move();
   p.display();
   p.wall();
@@ -33,6 +39,7 @@ void draw() {
   f2.touch();
   f2.score();
   f2.gol();
+  
   if (f1.s>4) {
     background(255);
     fill(0, 0, 255);
@@ -53,6 +60,7 @@ void draw() {
     textSize(50);
     text("Press ESC", width/2, height/2);
   }
+  
 }
 void keyPressed() {
   if (key == CODED) {

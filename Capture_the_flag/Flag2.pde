@@ -11,6 +11,7 @@ class Flag2 {
   }
   void display() {
     fill(255);
+    
     ellipse(x, y, d, d);
   }
   void touch() {
@@ -26,7 +27,7 @@ class Flag2 {
     text("Score:"+s, 150, 25);
   }
   void gol() {
-    if (x < m.x1) {
+    if (x < m.x1+25) {
       s = s + 1;
       p.x = 120;
       p.y = height/2;
