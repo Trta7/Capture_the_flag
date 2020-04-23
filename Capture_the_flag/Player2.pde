@@ -20,13 +20,23 @@ class Enemy {
     fill(0, 0, 200);
     stroke(1);
     rect(x, y, d, d);
+    fill(0,255,0);
+    ellipse(nextX-d/2+5,nextY,10,10);
+    ellipse(nextX+d/2-5,nextY,10,10);
+  }
+  boolean isNotBlack(int nextX, int nextY) {
+    if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
+      return false;
+    } else {
+      return true;
+    }
   }
   void move() {
     if (keyCodes[LEFT]) {  
       nextY = y;
       nextX = (x - d/2);
-      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
-      } else {
+      if (isNotBlack(nextX,nextY-d/2+1)&&isNotBlack(nextX,nextY+d/2-1)) {
+     
         x -= speed;
       }
     }
@@ -34,8 +44,8 @@ class Enemy {
     if (keyCodes[RIGHT]) { 
       nextY = y;
       nextX = (x + d/2);
-      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
-      } else {
+      if (isNotBlack(nextX,nextY-d/2+1)&&isNotBlack(nextX,nextY+d/2-1)) {
+     
         x += speed;
       }
     } 
@@ -43,8 +53,8 @@ class Enemy {
     if (keyCodes[UP]) { 
       nextX = x;
       nextY = (y - d/2);
-      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
-      } else {
+      if (isNotBlack(nextX-d/2+5,nextY)&&isNotBlack(nextX+d/2-5,nextY)) {
+      
         y -= speed;
       }
     }
@@ -52,8 +62,8 @@ class Enemy {
     if (keyCodes[DOWN]) {
       nextX = x;
       nextY = (y + d/2) ;
-      if (hue(get(nextX, nextY)) <= 0 && saturation(get(nextX, nextY)) <= 0  && brightness(get(nextX, nextY)) <= 0) {
-      } else {
+      if (isNotBlack(nextX-d/2+5,nextY)&&isNotBlack(nextX+d/2-5,nextY)) {
+     
         y += speed;
       }
     }
