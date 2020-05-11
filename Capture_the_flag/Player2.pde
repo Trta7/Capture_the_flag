@@ -14,7 +14,7 @@ class Enemy {
     y = height/2;
     d = 40;
     speed = 5;
-    Flash = new PVector(x,y);
+    Flash = new PVector(x, y);
   }
   void display() {
 
@@ -22,8 +22,8 @@ class Enemy {
     fill(0, 0, 200);
     stroke(1);
     rect(x, y, d, d);
-    fill(0,255,0);
-    ellipse(x+Flash.x,y+Flash.y,10,10);
+    fill(0, 255, 0);
+    ellipse(x+Flash.x, y+Flash.y, 10, 10);
     //ellipse(nextX+d/2-5,nextY,10,10);
   }
   boolean isNotBlack(int nextX, int nextY) {
@@ -34,47 +34,57 @@ class Enemy {
     }
   }
   void move() {
-   if (key == CODED) Flash.mult(0);
+    if (key == CODED) {
+      if (keyPressed) { 
+        Flash.mult(0);
+      }
+    }
+    if (keyPressed) {
+       Flash.mult(0);
+    }
     if (keyCodes[LEFT]) { 
-      Flash.add(-30*speed,0);
+      Flash.add(-30*speed, 0);
       nextY = y;
       nextX = (x - d/2);
-      if (isNotBlack(nextX,nextY-d/2+5)&&isNotBlack(nextX,nextY+d/2-5)) {
-     
+      if (isNotBlack(nextX, nextY-d/2+5)&&isNotBlack(nextX, nextY+d/2-5)) {
+
         x -= speed;
       }
-      
     }
 
     if (keyCodes[RIGHT]) { 
-      Flash.add(+30*speed,0);
+      Flash.add(+30*speed, 0);
       nextY = y;
       nextX = (x + d/2);
-      if (isNotBlack(nextX,nextY-d/2+5)&&isNotBlack(nextX,nextY+d/2-5)) {
-     
+      if (isNotBlack(nextX, nextY-d/2+5)&&isNotBlack(nextX, nextY+d/2-5)) {
+
         x += speed;
       }
     } 
 
     if (keyCodes[UP]) {
-      Flash.add(0,-30*speed);
+      Flash.add(0, -30*speed);
       nextX = x;
       nextY = (y - d/2);
-      if (isNotBlack(nextX-d/2+5,nextY)&&isNotBlack(nextX+d/2-5,nextY)) {
-      
+      if (isNotBlack(nextX-d/2+5, nextY)&&isNotBlack(nextX+d/2-5, nextY)) {
+
         y -= speed;
       }
     }
 
     if (keyCodes[DOWN]) {
-      Flash.add(0,+30*speed);
+      Flash.add(0, +30*speed);
       nextX = x;
       nextY = (y + d/2) ;
-      if (isNotBlack(nextX-d/2+5,nextY)&&isNotBlack(nextX+d/2-5,nextY)) {
-     
+      if (isNotBlack(nextX-d/2+5, nextY)&&isNotBlack(nextX+d/2-5, nextY)) {
+
         y += speed;
       }
     }
+    //if (key =='f'){
+    //x = x+Flash.x;
+    //y = y+Flash.y;
+    //}
   }
 
 
@@ -102,4 +112,4 @@ class Enemy {
       }
     }
   }
-} 
+}
