@@ -6,6 +6,8 @@ class Enemy {
   int nextX;
   int nextY;
   PVector Flash; 
+  int timer;
+  int respawn;
 
 
   Enemy() {
@@ -15,6 +17,8 @@ class Enemy {
     d = 40;
     speed = 5;
     Flash = new PVector(x, y);
+    timer = 0;
+    respawn = 0;
   }
   void display() {
 
@@ -24,6 +28,8 @@ class Enemy {
     rect(x, y, d, d);
     fill(0, 255, 0);
     ellipse(x+Flash.x, y+Flash.y, 10, 10);
+    text("Flash:"+timer, width-50, height-50);
+
     //ellipse(nextX+d/2-5,nextY,10,10);
   }
   boolean isNotBlack(int nextX, int nextY) {
@@ -40,7 +46,7 @@ class Enemy {
       }
     }
     if (keyPressed) {
-       Flash.mult(0);
+      Flash.mult(0);
     }
     if (keyCodes[LEFT]) { 
       Flash.add(-30*speed, 0);
@@ -81,11 +87,24 @@ class Enemy {
         y += speed;
       }
     }
-    //if (key =='f'){
-    //x = x+Flash.x;
-    //y = y+Flash.y;
-    //}
+    if (timer <0.1) { 
+      if (key == 'm') {
+        if (hue(get(x+int(Flash.x), y+int(Flash.y))) >= 0 && saturation(get(x+int(Flash.x), y+int(Flash.y))) >=0  && brightness(get(x+int(Flash.x), y+int(Flash.y)))>=1) {
+          if (x - d/2 < f1.x + f1.d/2 && x + d/2 > f1.x - f1.d/2 && f1.y + f1.d/2 > y - d/2  && f1.y - f1.d/2 < y + d/2 ) {
+            f1.x = x+int(Flash.x);
+            f1.y = y+int(Flash.y);
+          }
+          x = x+int(Flash.x);
+          y = y+int(Flash.y);
+          timer =500;
+        }
+      }
+    } else {
+      timer = timer - 1;
+    }
   }
+
+
 
 
   void wall() {
@@ -105,11 +124,22 @@ class Enemy {
   void collision() {
     if (x<width/2) {
       if (p.x - p.d/2 < x + d/2 && p.x + p.d/2 > x - d/2 && y + d/2 > p.y - p.d/2  && y - d/2 < p.y + p.d/2 ) {
-        x = width-120;
-        y = height/2;
+        x = 3*width/4;
+        y = height;
         f1.x = 75;
         f1.y = height/2;
+        speed=0;
+        respawn=100;
       }
+    }
+  }
+  void waiting() {
+    if (respawn<1) {
+      speed=5;
+    } else {
+      text(respawn, 3*width/4, height-50);
+      speed=0;
+      respawn = respawn-1;
     }
   }
 }

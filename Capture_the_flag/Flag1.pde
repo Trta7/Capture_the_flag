@@ -2,24 +2,16 @@ class Flag1 {
   float x;
   float y;
   int d;
-  int s;
-  
+  int s;  
   Flag1() {
     x = 75;
     y = height/2;
     d = 30;
-    s = 0;
-    
+    s = 0;    
   }
-  void display() {
-   
-    
-    fill(255);
-    
+  void display() {    
+    fill(255);    
     ellipse(x, y, d, d);
-    //imageMode(CENTER);
-    //vlajka.resize(0,75);
-    //image(vlajka,x,y);
   }
   void touch() {
     if (e.x - e.d/2 < x + d/2 && e.x + e.d/2 > x - d/2 && y + d/2 > e.y - e.d/2  && y - d/2 < e.y + e.d/2 ) {
@@ -45,5 +37,5 @@ class Flag1 {
       f2.x = width-75;
       f2.y = height/2;
     }
-  }
+  }  
 } 

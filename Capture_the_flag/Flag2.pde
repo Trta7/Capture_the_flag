@@ -10,8 +10,7 @@ class Flag2 {
     s = 0;
   }
   void display() {
-    fill(255);
-    
+    fill(255);    
     ellipse(x, y, d, d);
   }
   void touch() {

@@ -17,7 +17,6 @@ void setup() {
   f2 = new Flag2();
   b = new Block();
   //vlajka = loadImage("vlajka.png");
-  
 }
 void draw() {
   background(255);
@@ -27,10 +26,12 @@ void draw() {
   p.display();
   p.wall();
   p.collision();
+  p.waiting(); 
   e.move();
   e.display();
   e.wall();
   e.collision();
+  e.waiting();
   f1.display();
   f1.touch();
   f1.score();
@@ -39,7 +40,7 @@ void draw() {
   f2.touch();
   f2.score();
   f2.gol();
-  
+
   if (f1.s>4) {
     background(255);
     fill(0, 0, 255);
@@ -60,7 +61,6 @@ void draw() {
     textSize(50);
     text("Press ESC", width/2, height/2);
   }
-  
 }
 void keyPressed() {
   if (key == CODED) {
